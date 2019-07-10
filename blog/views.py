@@ -56,6 +56,7 @@ class PostDeleteView(LoginRequiredMixin, DeleteView):
 class DraftListView(LoginRequiredMixin, ListView):
     login_url = '/login/'
     redirect_field_name = 'blog/post_list.html'
+    template_name = 'post_draft_list.html'
     model = Post
 
     # we want to return all the publication dates that don't have publication date
