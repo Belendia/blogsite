@@ -30,17 +30,17 @@ class PostDetailView(DetailView):
 
 
 class PostCreateView(LoginRequiredMixin, CreateView):
-    login_url = '/login/'
-    redirect_field_name = 'blog/post_detail.html'
-
+    login_url = '/accounts/login/'
+    # the value 'next' is the default so we can leave it.
+    redirect_field_name = 'next'
     form_class = PostForm
 
     model = Post
 
 
 class PostUpdateView(LoginRequiredMixin, UpdateView):
-    login_url = '/login/'
-    redirect_field_name = 'blog/post_detail.html'
+    login_url = '/accounts/login/'
+    #redirect_field_name = 'next'
 
     form_class = PostForm
 
@@ -54,8 +54,8 @@ class PostDeleteView(LoginRequiredMixin, DeleteView):
 
 
 class DraftListView(LoginRequiredMixin, ListView):
-    login_url = '/login/'
-    redirect_field_name = 'blog/post_list.html'
+    login_url = '/accounts/login/'
+    #redirect_field_name = 'next'
     template_name = 'post_draft_list.html'
     model = Post
 
