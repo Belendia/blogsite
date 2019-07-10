@@ -60,7 +60,7 @@ class DraftListView(LoginRequiredMixin, ListView):
 
     # we want to return all the publication dates that don't have publication date
     def get_queryset(self):
-        return Post.objects.filter(published_date__isnull=True).order_by('create_date')
+        return Post.objects.filter(published_date__isnull=True).order_by('created_date')
 
 
 #########################################

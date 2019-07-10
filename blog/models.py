@@ -9,7 +9,7 @@ class Post(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
     text = models.TextField()
-    create_date = models.DateTimeField(default=timezone.now)
+    created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
 
     # The post might be in draft mode and have no published date. But when you deside to
@@ -39,8 +39,8 @@ class Comment(models.Model):
         self.approved_comment = True
         self.save()
 
-    def get_absolute_url(self):
-        return reverse("post_list")
+    # def get_absolute_url(self):
+    #     return reverse("post_list")
 
     def __str__(self):
         return self.text
